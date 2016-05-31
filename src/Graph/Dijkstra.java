@@ -45,6 +45,7 @@ public class Dijkstra {
     }
 
     private static void applyDijkstra(double[][] W, int startVertex, int vertexCount) {
+        //슈도코드
         //function Dijkstra(G, w, s)
         //  for each vertex v in V(G)
         //      d[v] := infinity
@@ -98,7 +99,6 @@ public class Dijkstra {
         int vertexCount = scanner.nextInt();
         int edgeCount = scanner.nextInt();
         double[][] adjacencyMatrix = new double[vertexCount][vertexCount];
-
 
         for (int i = 0; i < edgeCount; i++) {
             System.out.println("간선을 입력해주세요");
