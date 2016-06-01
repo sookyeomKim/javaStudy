@@ -26,11 +26,12 @@ public class Dijkstra {
         return minIndex;
     }
 
-    private static void printSolution(double[] D, int vertexCount, int[] pathTracer) {
+    private static void printSolution(double[] D, int vertexCount, int[] pathTracer, int startVertex) {
         System.out.println("Vertex   Distance from Source");
         for (int i = 0; i < vertexCount; i++)
             System.out.println(i + " \t\t " + D[i]);
         System.out.println("---------------");
+
         for (int i = 0; i < vertexCount; ++i) {
             int j;
             System.out.print("Path = " + i);
@@ -38,7 +39,7 @@ public class Dijkstra {
             do {
                 j = pathTracer[j];
                 System.out.print("<-" + j);
-            } while (j != 0);
+            } while (j != startVertex);
 
             System.out.println();
         }
@@ -91,7 +92,7 @@ public class Dijkstra {
                 }
             }
         }
-        printSolution(D, vertexCount, pathTracer);
+        printSolution(D, vertexCount, pathTracer, startVertex);
     }
 
     public static void main(String[] args) {
