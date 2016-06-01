@@ -9,6 +9,8 @@ public class Dijkstra {
     private static int extract_min(LinkedList Q, LinkedList S, double[] D) {
         double min = Integer.MAX_VALUE;
         int minIndex = -1;
+
+        //TODO 우선순위큐로 변경
         for (Object e : Q) {
             if (!S.contains(e) && min > D[(int) e]) {
                 min = D[(int) e];
@@ -34,14 +36,19 @@ public class Dijkstra {
 
         for (int i = 0; i < vertexCount; ++i) {
             int j;
-            System.out.print("Path = " + i);
-            j = i;
-            do {
-                j = pathTracer[j];
-                System.out.print("<-" + j);
-            } while (j != startVertex);
+            if (i != startVertex) {
+                System.out.print("Path = " + i);
+                j = i;
+                do {
+                    j = pathTracer[j];
+                    System.out.print("<-" + j);
+                } while (j != startVertex);
 
-            System.out.println();
+                System.out.println();
+            } else {
+                System.out.print("Path = " + i + "는 시작점입니다.");
+                System.out.println();
+            }
         }
     }
 
@@ -73,7 +80,7 @@ public class Dijkstra {
         //  return minIndex;
 
         double[] D = new double[vertexCount];
-        LinkedList<Integer> Q = new LinkedList<>();
+        LinkedList<Integer> Q = new LinkedList<>();//TODO 인접 리스트로 변경
         for (int i = 0; i < vertexCount; i++) {
             D[i] = Integer.MAX_VALUE;
             Q.addLast(i);
@@ -86,6 +93,7 @@ public class Dijkstra {
             int u = extract_min(Q, S, D);
             S.addLast(u);
             for (int v = 0; v < vertexCount; v++) {
+                if (v == u) continue;
                 if (D[v] > D[u] + W[u][v] && W[u][v] != 0 && D[u] != Integer.MAX_VALUE) {
                     D[v] = D[u] + W[u][v];
                     pathTracer[v] = u;
@@ -115,7 +123,6 @@ public class Dijkstra {
             }
             System.out.println();
         }
-
         int startVertex = scanner.nextInt();
 
         applyDijkstra(adjacencyMatrix, startVertex, vertexCount);
