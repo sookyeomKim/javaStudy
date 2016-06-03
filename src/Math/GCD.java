@@ -8,9 +8,6 @@ public class GCD {
         if (b == 0) {
             return a;
         }
-        if (a == 0) {
-            return b;
-        }
         return GCD(b, a % b);
     }
 

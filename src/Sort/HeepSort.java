@@ -88,7 +88,7 @@ public class HeepSort {
     }
 
     public static void main(String[] args) {
-        int[] test = {2, 4, 3, 1, 0, 5, 7, 6, 60, 20, 100};
+        int[] test = {10, 8, 9, 1, 4, 3, 6, 2, 7, 5};
 
         Sort(test);
 

@@ -13,14 +13,14 @@ public class QuickSort {
         int i = start;                          // 왼쪽에서 시작하여 오른쪽으로 피봇보다값이 큰 값을 찾기 위한 인덱스입니다.
         int k = end;                            // 오른쪽에서 시작하여 왼쪽으로 피봇보다값이 작은 값을 찾기 위한 인덱스입니다.
 
-        if (end - start >= 1) {             // 정렬의 추가 실행여부 확인(마지막과 시작의 인덱스가 같다는 것은 모든 정렬을 마치고 왔다는 의미이므로 바로 메소드를 벗어납니다)
+        if (end > start) {             // 정렬의 추가 실행여부 확인(마지막과 시작의 인덱스가 같다는 것은 모든 정렬을 마치고 왔다는 의미이므로 바로 메소드를 벗어납니다)
             int pivot = array[start];       // 배열의 맨 좌측을 피봇으로 설정합니다.
 
             while (k > i) {                 // i와 k가 엇갈리기 전까지 피봇을 기준으로 비교하여 Swap합니다.
-                while (array[i] <= pivot && i <= end && k > i) {// 피봇의 값보다 큰 요소의 위치를 찾아 냅니다.
+                while (array[i] <= pivot && k > i) {// 피봇의 값보다 큰 요소의 위치를 찾아 냅니다.
                     i++;
                 }
-                while (array[k] > pivot && k >= start && k >= i) {// 피봇의 값보다 작은 요소의 위치를 찾아 냅니다.
+                while (array[k] > pivot && k >= i) {// 피봇의 값보다 작은 요소의 위치를 찾아 냅니다.
                     k--;
                 }
                 if (k > i) {// 엇갈리기 전까지 피봇보다 값이 큰 요소와 작은 요소를 서로 Swap합니다.
@@ -41,7 +41,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] test = {2, 4, 3, 1, 0, 5, 7, 6};
+        int[] test = {10, 8, 9, 1, 4, 3, 6, 2, 7, 5};
 
         Sort(test);
 

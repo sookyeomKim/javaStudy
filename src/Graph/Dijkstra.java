@@ -11,6 +11,8 @@ public class Dijkstra {
         int minIndex = -1;
 
         //TODO 우선순위큐로 변경
+        //heep 정렬 후 첫번째꺼 슉 뽑는다
+        //이진 heep말고 피보나치 힙을 이용하면 더 빨라진 다는데...
         for (Object e : Q) {
             if (!S.contains(e) && min > D[(int) e]) {
                 min = D[(int) e];
